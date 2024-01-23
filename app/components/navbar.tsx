@@ -1,10 +1,10 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { Button, List, Popup, Space, Tabs } from 'antd-mobile'
+import { Button, Image, List, Popup, Space, Tabs } from 'antd-mobile'
 import Link from 'next/link'
 import style from './navbar.module.sass'
-import { AppOutline, CloseOutline, MoreOutline } from 'antd-mobile-icons'
+import { CloseOutline, MoreOutline } from 'antd-mobile-icons'
 import { useEffect, useState } from 'react'
 import { project_details } from '../_lib/project'
 
@@ -35,9 +35,9 @@ const Navbar = () => {
 
   const Logo = () => (
     <Link href='/' onClick={() => setVisible(false)}>
-      <Button fill='none' color='primary' className={style.height}>
+      <Button color='primary' className={style.height}>
         <Space align='center'>
-          <AppOutline fontSize={iconSize} />
+          <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
           <span>{project_details.title}</span>
         </Space>
       </Button>
@@ -64,7 +64,6 @@ const Navbar = () => {
               )}
             </Tabs>
             <Button
-              fill='none'
               color='primary'
               onClick={() => setVisible(true)}
               className={`hide-on-lg ${style.height}`}
@@ -82,12 +81,16 @@ const Navbar = () => {
           bodyStyle={{ width: '100%' }}
           onClose={() => { setVisible(false) }}
         >
-          <Space block justify='between' align='center'>
+          <Space
+            block
+            justify='between'
+            align='center'
+            style={{ background: 'var(--adm-color-primary)' }}
+          >
             <Logo />
             <Button
-              fill='none'
+              color='primary'
               onClick={() => { setVisible(false) }}
-              style={{ '--text-color': 'var(--adm-color-weak)' }}
               className={style.height}
             >
               <CloseOutline fontSize={20} />

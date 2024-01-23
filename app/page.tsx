@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Grid } from 'antd-mobile'
+import { Button, Grid, Image } from 'antd-mobile'
 import { project_details } from './_lib/project'
 import Link from 'next/link'
 
