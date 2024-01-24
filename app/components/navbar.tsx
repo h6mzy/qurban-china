@@ -23,37 +23,38 @@ const Navbar = () => {
   }, [])
 
   const TabLink = ({ href, title }: { href: string, title: string }) => (
-    <Link className={style.link} href={href}>{title}</Link>
+    <Link className={`${style.link} ${style.tabItem}`} href={href}>{title}</Link>
   )
 
   const navItems = [
     { key: 'about', title: 'About' },
     { key: 'contact', title: 'Contact' },
+    { key: 'donate', title: 'Donate' },
   ]
 
   const iconSize = 24
-
-  const Logo = () => (
-    <Link href='/' onClick={() => setVisible(false)}>
-      <Button color='primary' className={style.height}>
-        <Space align='center'>
-          <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
-          <span>{project_details.title}</span>
-        </Space>
-      </Button>
-    </Link>
-  )
 
   return (
     <>
       <div className={style.nav}>
         <Space justify='between' block className='align-stretch'>
-          <Logo />
+          <Link href='/' onClick={() => setVisible(false)}>
+            <Button color='primary' className={style.height}>
+              <Space align='center' block>
+                <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
+                <div dangerouslySetInnerHTML={{ __html: project_details.title_html }} />
+              </Space>
+            </Button>
+          </Link>
           <>
             <Tabs
               defaultActiveKey={null}
               activeKey={activeKey}
               className='show-on-lg tabs-borderless'
+              style={{ 
+                '--active-line-color': 'var(--adm-color-white)',
+                '--active-title-color': 'var(--adm-color-white)',
+              }}
             >
               {navItems.map(tab =>
                 <Tabs.Tab
@@ -87,7 +88,7 @@ const Navbar = () => {
             align='center'
             style={{ background: 'var(--adm-color-primary)' }}
           >
-            <Logo />
+            <Button color='primary' disabled>Explore</Button>
             <Button
               color='primary'
               onClick={() => { setVisible(false) }}
@@ -96,12 +97,14 @@ const Navbar = () => {
               <CloseOutline fontSize={20} />
             </Button>
           </Space>
-          <List>
+          <List
+
+          >
             {navItems.map(item =>
               <Link
                 key={item.key}
                 href={`/${item.key}`}
-                className={style.link}
+                className={`${style.link} ${style.listLink} ${item.key === activeKey ? style.active : ''}`}
                 onClick={() => setVisible(false)}
               >
                 <List.Item>

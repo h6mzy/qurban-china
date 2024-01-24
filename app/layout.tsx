@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './global.sass'
 import Navbar from './components/navbar'
 import SiteFooter from './components/footer'
 import { project_details } from './_lib/project'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: `${project_details.title}`,
@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
       </head>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <Navbar />
         {children}
         <SiteFooter />
