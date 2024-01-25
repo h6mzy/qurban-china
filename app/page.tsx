@@ -44,10 +44,12 @@ export default function Home() {
       <section className='container'>
         <div className='pad'>
           <h4 className='text-right font-color-weak'>Featured Project <DownOutline /></h4>
-          <div dangerouslySetInnerHTML={{ __html: video }} style={{ marginTop: '.5rem' }} />
+          <div 
+            dangerouslySetInnerHTML={{ __html: video }} 
+            style={{ marginTop: 'var(--adm-gap-sm)' }} />
           <Heading title='2023 Zhang Jiachuan Zakat for the Aged Poor' />
           <p className='text-justify'>In April 2004, Late Brother Jaafar Mah set up the first Muslim NGO known as Zhang Jiachuan Charity Services Center. He was its main Chairman till his demise in May 2021 and Sister Mariah Mah took over the chairmanship to manage its community service charity projects like Distribution of Zakat, Sedaqah, Rice, Fidyah, Iftar Ramadan, Qurban and Aqiqah.</p>
-          <Grid columns={2} gap='.5rem' className='pad-t'>
+          <Grid columns={2} gap='var(--adm-gap-sm)' className='pad-t'>
             <Link href='/project/2023-zhang-jiachuan-zakat-for-the-aged-poor'>
               <Button block fill='outline' style={{ '--border-color': 'var(--adm-color-light)' }}>
                 Read more

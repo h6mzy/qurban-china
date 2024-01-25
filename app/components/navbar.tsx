@@ -36,44 +36,40 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={styles.nav}>
-        <Space justify='between' block className='align-stretch'>
-          <Link href='/' onClick={() => setVisible(false)}>
-            <Button color='primary' className={styles.height}>
-              <Space align='center' style={{ display: 'flex' }}>
-                <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
-                <div dangerouslySetInnerHTML={{ __html: project_details.title_html }} />
-              </Space>
-            </Button>
-          </Link>
-          <>
-            <Tabs
-              defaultActiveKey={null}
-              activeKey={activeKey}
-              className='show-on-lg tabs-borderless'
-              style={{ 
-                '--active-line-color': 'var(--adm-color-white)',
-                '--active-title-color': 'var(--adm-color-white)',
-              }}
-            >
-              {navItems.map(tab =>
-                <Tabs.Tab
-                  key={tab.key}
-                  title={<TabLink href={`/${tab.key}`} title={tab.title} />}
-                  className={`${styles.height} ${styles.tab}`}
-                />
-              )}
-            </Tabs>
-            <Button
-              color='primary'
-              onClick={() => setVisible(true)}
-              className={`hide-on-lg ${styles.height}`}
-            >
-              <MoreOutline fontSize={iconSize} className={styles.more} />
-            </Button>
-          </>
-        </Space>
-      </div>
+      <Space block justify='between' className={styles.nav}>
+        <Link href='/' onClick={() => setVisible(false)}>
+          <div className={styles.home}>
+            <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
+            <div dangerouslySetInnerHTML={{ __html: project_details.title_html }} />
+          </div>
+        </Link>
+        <>
+          <Tabs
+            defaultActiveKey={null}
+            activeKey={activeKey}
+            className='show-on-lg tabs-borderless'
+            style={{ 
+              '--active-line-color': 'var(--adm-color-white)',
+              '--active-title-color': 'var(--adm-color-white)',
+            }}
+          >
+            {navItems.map(tab =>
+              <Tabs.Tab
+                key={tab.key}
+                title={<TabLink href={`/${tab.key}`} title={tab.title} />}
+                className={`${styles.height} ${styles.tab}`}
+              />
+            )}
+          </Tabs>
+          <Button
+            color='primary'
+            onClick={() => setVisible(true)}
+            className={`hide-on-lg ${styles.height}`}
+          >
+            <MoreOutline fontSize={iconSize} className={styles.more} />
+          </Button>
+        </>
+      </Space>
       <div className='hide-on-lg'>
         <Popup
           visible={visible}
