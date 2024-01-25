@@ -42,7 +42,7 @@ const Navbar = () => {
             <Image
               src='/images/chinamuslim.svg'
               height={`${iconSize}px`}
-              width='auto'
+              width={33.27}
             />
             <div dangerouslySetInnerHTML={{ __html: project_details.title_html }} />
           </div>
