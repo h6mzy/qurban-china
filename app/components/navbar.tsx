@@ -40,7 +40,7 @@ const Navbar = () => {
         <Space justify='between' block className='align-stretch'>
           <Link href='/' onClick={() => setVisible(false)}>
             <Button color='primary' className={styles.height}>
-              <Space align='center'>
+              <Space align='center' style={{ display: 'flex' }}>
                 <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
                 <div dangerouslySetInnerHTML={{ __html: project_details.title_html }} />
               </Space>
