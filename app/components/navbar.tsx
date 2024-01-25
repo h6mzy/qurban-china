@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Space block justify='between' className={styles.nav}>
+      <div className={styles.nav}>
         <Link href='/' onClick={() => setVisible(false)}>
           <div className={styles.home}>
             <Image src='/images/chinamuslim.svg' height={`${iconSize}px`} />
@@ -69,7 +69,7 @@ const Navbar = () => {
             <MoreOutline fontSize={iconSize} className={styles.more} />
           </Button>
         </>
-      </Space>
+      </div>
       <div className='hide-on-lg'>
         <Popup
           visible={visible}
