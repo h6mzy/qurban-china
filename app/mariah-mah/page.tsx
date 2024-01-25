@@ -1,5 +1,6 @@
 'use client'
 
+import { Image } from 'antd-mobile'
 import Heading from '../components/heading'
 import Title from '../components/title'
 import Video from '../components/video'
@@ -37,6 +38,12 @@ export default function Home() {
             <p>Kindly refer to page 142 of the publication - The 500 most influential Muslims in the world 2009.</p>
             <p>Besides being selected to be among 500 most influential Muslims in the world, she was honoured by Cambridge University Faculty of Islamic Arts for excellence in the promotion and service of Islam and the promotion of Chinese Muslim Culture in 2000.</p>
           </div>
+          <Image
+            src='/images/cambridge-cert.webp'
+            width={300}
+            height='auto'
+            alt='Photo of Cambridge Certificate'
+          />
         </div>
       </section>
     </main>
