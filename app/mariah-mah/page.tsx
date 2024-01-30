@@ -40,8 +40,11 @@ export default function Home() {
           </div>
           <Lightbox 
             images={[
-              { src: '/images/cambridge-cert.webp' }
-            ]} 
+              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 1' },
+              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 2' },
+              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 3' },
+            ]}
+            gridProps={{ columns: 3, gap: 'var(--adm-gap-sm)' }}
           />
         </div>
       </section>
