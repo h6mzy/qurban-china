@@ -3,8 +3,9 @@
 import Heading from '../components/heading'
 import Title from '../components/title'
 import Video from '../components/video'
-import Lightbox from '../components/lightbox'
-import Zoom from 'react-medium-image-zoom'
+import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import { useCallback, useState } from 'react'
+import { Grid, Image } from 'antd-mobile'
 
 export default function Home() {
 
@@ -15,6 +16,23 @@ export default function Home() {
   const iframe2 = (
     `<iframe src="https://www.youtube.com/embed/E7W8iqVL5qk?si=wkBPVtbbVJB0LdVZ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="video-iframe"></iframe>`
   )
+
+  const images = [
+    { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 1' },
+    { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 2' },
+    { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 3' },
+  ]
+
+  const [imageIndex, setImageIndex] = useState(0)
+  const [isZoomed, setIsZoomed] = useState(false)
+  const handleZoomChange = useCallback((shouldZoom: boolean) => {
+    setIsZoomed(shouldZoom)
+  }, [])
+
+  const onImageClick = (index: number) => {
+    setImageIndex(index)
+    setIsZoomed(true)
+  }
 
   return (
     <main>
@@ -39,22 +57,27 @@ export default function Home() {
             <p>Kindly refer to page 142 of the publication - The 500 most influential Muslims in the world 2009.</p>
             <p>Besides being selected to be among 500 most influential Muslims in the world, she was honoured by Cambridge University Faculty of Islamic Arts for excellence in the promotion and service of Islam and the promotion of Chinese Muslim Culture in 2000.</p>
           </div>
-          <Zoom >
+          <Grid columns={3} gap='.5rem'>
+            {images.map((image, currIndex) =>
+              <Grid.Item span={1} key={currIndex}>
+                <Image
+                  src={image.src}
+                  width='100%'
+                  height='auto'
+                  alt={image.title}
+                  onClick={() => onImageClick(currIndex)}
+                />
+              </Grid.Item>
+            )}
+          </Grid>
+          <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
             <img
-              alt='Cambridge Certificate 1'
-              src='/images/cambridge-cert.webp'
+              alt={images[imageIndex].title}
+              src={images[imageIndex].src}
               width='100%'
               height='auto'
             />
-          </Zoom>
-          <Lightbox 
-            images={[
-              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 1' },
-              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 2' },
-              { src: '/images/cambridge-cert.webp', title: 'Cambridge Certificate 3' },
-            ]}
-            gridProps={{ columns: 3, gap: 'var(--adm-gap-sm)' }}
-          />
+          </ControlledZoom>
         </div>
       </section>
     </main>
