@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const navItems = [
     { key: 'about', title: 'About' },
+    { key: 'testimonials', title: 'Testimonials' },
     { key: 'contact', title: 'Contact' },
     { key: 'donate', title: 'Donate' },
   ]

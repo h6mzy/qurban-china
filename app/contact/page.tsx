@@ -1,6 +1,6 @@
 import { project_details } from '../_lib/project'
 
-export default function About() {
+export default function Contact() {
   return (
     <main className='pad text-center'>
       <h1>Contact</h1>
