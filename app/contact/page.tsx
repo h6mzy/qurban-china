@@ -1,3 +1,5 @@
+'use client'
+
 import { project_details } from '../_lib/project'
 
 export default function Contact() {
