@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './global.sass'
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import SiteFooter from './components/footer'
 import { project_details } from './_lib/project'
 
