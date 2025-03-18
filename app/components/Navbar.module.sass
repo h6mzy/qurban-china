@@ -29,9 +29,11 @@
   justify-content: center
   align-items: center
 
-.button, .donateButton
+.button, .donateButton, .menuButton
   display: inline-block
   padding: .7rem 2rem
+  background: #fff
+  border: 1px solid transparent
   color: var(--text-color)
   text-decoration: none
   text-transform: uppercase
@@ -41,6 +43,25 @@
 
 .donateButton
   border: 1px solid var(--text-color)
+
+.menuButton
+  padding-right: 0
+
+.container
+  display: flex
+  flex-direction: column
+  position: relative
+
+.mask
+  position: fixed
+  top: 0
+  left: 0
+  width: 100dvw
+  height: 100dvh
+  background-color: rgba(0, 0, 0, .8)
+
+.box
+  background-color: #fff
 
 @media (min-width: 478px)
   .logo
@@ -52,6 +73,9 @@
 
   .logo
     padding: var(--gap) calc(var(--gap) * 2)
+
+  .container
+    display: none
   
   .nav
     display: block
