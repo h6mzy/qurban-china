@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import SiteFooter from './components/footer'
 import { project_details } from './_lib/project'
 
-const bodyFont = Poppins({ subsets: ['latin'], weight: ['400', '900'] })
+const bodyFont = Poppins({ subsets: ['latin'], weight: ['300', '900'] })
 
 const baseUrl = 'https://chinamuslim.vercel.app'
 

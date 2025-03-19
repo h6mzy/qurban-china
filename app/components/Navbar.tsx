@@ -52,11 +52,12 @@ const Navbar = () => {
       </nav>
       <div className={styles.container}>
         <motion.button
+          name="Menu button"
           className={styles.menuButton}
           onClick={() => setIsVisible(true)}
           whileTap={{ y: 1 }}
         >
-          O
+          <span className={styles.lines}>&nbsp;</span>
         </motion.button>
         <AnimatePresence initial={false}>
           {isVisible ? (
@@ -73,11 +74,12 @@ const Navbar = () => {
                   <div className={styles.navSpacer} />
                   <Logo />
                   <motion.button
-                    className={styles.menuButton}
+                    name="Close menu button"
+                    className={styles.closeButton}
                     onClick={() => setIsVisible(false)}
                     whileTap={{ y: 1 }}
                   >
-                    X
+                    <span className={styles.lines}>&nbsp;</span>
                   </motion.button>
                 </div>
                 <div className={styles.divider} />
