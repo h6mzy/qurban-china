@@ -42,18 +42,22 @@
 
 .button, .donateButton, .menuButton, .closeButton
   display: flex
-  padding: .7rem 2rem
+  justify-content: center
+  align-items: center
+  padding: 1rem 2rem
   background: transparent
   border: 1px solid transparent
   color: var(--text-color)
   text-decoration: none
   text-transform: uppercase
+  line-height: 1
   transition: all .3s ease-out
   &:hover
     color: var(--primary-color)
 
 .donateButton
   border: 1px solid var(--text-color)
+  width: 100%
 
 .menuButton, .closeButton
   padding: 0
@@ -99,6 +103,7 @@
   flex-direction: column
   position: relative
   flex: 1
+  z-index: 2
 
 .mask
   position: fixed
@@ -121,6 +126,9 @@
   height: 100%
   .logo, .logoStrong, .button, .donateButton, .menuButton
     color: #fff
+  nav
+    width: 100%
+    padding: 0 var(--gap)
   .donateButton
     border: 1px solid #fff
 
