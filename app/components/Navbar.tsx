@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import styles from './Navbar.module.sass'
+import layoutStyles from './Layout.module.sass'
 import { AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 import * as motion from 'motion/react-client'
@@ -12,7 +13,7 @@ const rightNav = ["zakat", "projects", "testimonials"]
 
 const Logo = () => (
   <div className={styles.logo}>
-    <Image src="/images/chinamuslim.svg" width={30} height={30} objectFit="contain" alt="Chinamuslim logo" />
+    <Image className={layoutStyles.contain} src="/images/chinamuslim.svg" width={30} height={30} alt="Chinamuslim logo" />
     <span><strong className={styles.logoStrong}>Chinamuslim</strong>.help</span>
   </div>
 )
