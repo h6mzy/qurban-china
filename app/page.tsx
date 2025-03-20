@@ -4,6 +4,7 @@ import { donors } from './_lib/donors'
 import styles from './components/Home.module.sass'
 import layout from './components/Layout.module.sass'
 import Image from 'next/image'
+import Slides from './components/Slides'
 
 export default function Home() {
   return (
@@ -27,8 +28,9 @@ export default function Home() {
         <div className={layout.container}>
           <div className={layout.pad}>
             <div className={layout.autoAlign}>
-              <h2><strong>Our Donors</strong></h2>
+              <h2><strong>Our Generous Donors</strong></h2>
             </div>
+            <Slides items={donors} />
             {donors.map((donor, key) => 
               <div key={key}>
                 <Image className={layout.contain} src={`${donor.photo}?img=${key+1}`} alt={donor.name} width={100} height={100} />
