@@ -56,3 +56,6 @@ export default function Home() {
     </main>
   )
 }
+
+//https://codesandbox.io/p/sandbox/framer-motion-sharedlayout-dk5pfh?file=%2Fsrc%2FApp.js%3A140%2C28
+//https://codesandbox.io/p/sandbox/framer-motion-ios-notifications-0sct9o?file=%2Fsrc%2FApp.js
