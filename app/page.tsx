@@ -3,7 +3,7 @@
 import { donors } from './_lib/donors'
 import styles from './components/Home.module.sass'
 import layout from './components/Layout.module.sass'
-import Image from 'next/image'
+import slides from './components/Slides.module.sass'
 import Slides from './components/Slides'
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
             <h2>Zakat 2025</h2>
             <p>Lorem ipsum dolor sit amet.</p>
             <button
-              name="More info"
+              aria-label="More info"
               className={layout.whiteButton}
             >
               More info
@@ -28,15 +28,28 @@ export default function Home() {
         <div className={layout.container}>
           <div className={layout.pad}>
             <div className={layout.autoAlign}>
+              <h2><strong>Waqaf Projects</strong></h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className={layout.container}>
+          <div className={layout.pad}>
+            <div className={layout.autoAlign}>
               <h2><strong>Our Generous Donors</strong></h2>
             </div>
-            <Slides items={donors} />
-            {donors.map((donor, key) => 
-              <div key={key}>
-                <Image className={layout.contain} src={`${donor.photo}?img=${key+1}`} alt={donor.name} width={100} height={100} />
-                <p>{donor.name}</p>
-              </div>
-            )}
+            <Slides
+              items={donors.map((item:any, index) => {
+                return (
+                  <div 
+                    key={index}
+                    className={slides.box}
+                    style={{ background: `url(${item.photo}?img=1) center center / cover no-repeat transparent` }}
+                  />
+                )
+              })}
+            />
           </div>
         </div>
       </section>

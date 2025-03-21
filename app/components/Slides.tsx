@@ -1,30 +1,29 @@
 'use client'
 
 import { AnimatePresence, motion, usePresenceData, wrap } from 'motion/react'
-import { forwardRef, SVGProps, useState } from 'react'
+import React, { forwardRef, SVGProps, useState } from 'react'
+
+import styles from './Slides.module.sass'
 
 const Slides = ({ items = [] }: { items?: any[] }) => {
-  const [selectedItem, setSelectedItem] = useState(items[0])
   const [direction, setDirection] = useState<1 | -1>(1)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
   function setSlide(newDirection: 1 | -1) {
-    const nextItem = wrap(1, items.length, selectedItem + newDirection)
-    setSelectedItem(nextItem)
+    const nextIndex = wrap(0, items.length, selectedIndex + newDirection)
+    setSelectedIndex(nextIndex)
     setDirection(newDirection)
   }
 
-  const color = `lightgrey`
-
   return (
-    <div style={container}>
+    <div className={styles.container}>
       <motion.button
         initial={false}
-        animate={{ backgroundColor: color }}
         aria-label="Previous"
-        style={button}
+        className={styles.button}
         onClick={() => setSlide(-1)}
-        whileFocus={{ outline: `2px solid lightgrey` }}
-        whileTap={{ scale: 0.9 }}
+        whileFocus={{ outline: '1px solid var(--primary-color)' }}
+        whileTap={{ scale: .9 }}
       >
         <ArrowLeft />
       </motion.button>
@@ -33,16 +32,15 @@ const Slides = ({ items = [] }: { items?: any[] }) => {
         initial={false}
         mode="popLayout"
       >
-        <Slide key={selectedItem} item={selectedItem} />
+        <Slide key={selectedIndex}>{items[selectedIndex]}</Slide>
       </AnimatePresence>
       <motion.button
         initial={false}
-        animate={{ backgroundColor: color }}
         aria-label="Next"
-        style={button}
+        className={styles.button}
         onClick={() => setSlide(1)}
-        whileFocus={{ outline: `2px solid lightgrey` }}
-        whileTap={{ scale: 0.9 }}
+        whileFocus={{ outline: '1px solid var(--primary-color)' }}
+        whileTap={{ scale: .9 }}
       >
         <ArrowRight />
       </motion.button>
@@ -50,32 +48,37 @@ const Slides = ({ items = [] }: { items?: any[] }) => {
   )
 }
 
-const Slide = forwardRef<HTMLDivElement, { item: any }>(( { item }, ref ) => {
-  const direction = usePresenceData()
+export default Slides
 
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: direction * 50 }}
-      animate={{
-        opacity: 1,
-        x: 0,
-        transition: {
-          delay: 0.2,
-          type: "spring",
-          visualDuration: 0.3,
-          bounce: 0.4,
-        },
-      }}
-      exit={{ opacity: 0, x: direction * -50 }}
-      style={{ ...box, background: `url(${item.photo}?img=1) center center / cover no-repeat transparent` }}
-    />
-  )
-})
+const Slide = forwardRef<HTMLDivElement, { children?: React.ReactNode }>(
+  ({ children }, ref) => {
+    const direction = usePresenceData()
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, x: direction * 50 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          transition: {
+            delay: 0.2,
+            type: 'spring',
+            visualDuration: 0.3,
+            bounce: 0.4,
+          },
+        }}
+        exit={{ opacity: 0, x: direction * -50 }}
+      >
+        {children && React.isValidElement(children) ? 
+          React.cloneElement(children) // Clone and pass ref to child element
+          : null
+        }
+      </motion.div>
+    )
+  }
+)
 
-/**
- * ==============   Icons   ================
- */
+// icons
 const iconsProps: SVGProps<SVGSVGElement> = {
   xmlns: "http://www.w3.org/2000/svg",
   width: "24",
@@ -83,7 +86,7 @@ const iconsProps: SVGProps<SVGSVGElement> = {
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
-  strokeWidth: "2",
+  strokeWidth: "1",
   strokeLinecap: "round",
   strokeLinejoin: "round",
 }
@@ -105,37 +108,3 @@ function ArrowRight() {
     </svg>
   )
 }
-
-/**
- * ==============   Styles   ================
- */
-
-const container: React.CSSProperties = {
-  display: "flex",
-  position: "relative",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: 10,
-}
-
-const box: React.CSSProperties = {
-  width: 150,
-  height: 150,
-  backgroundColor: "#0cdcf7",
-  borderRadius: "10px",
-}
-
-const button: React.CSSProperties = {
-  backgroundColor: "#0cdcf7",
-  width: 40,
-  height: 40,
-  borderRadius: "50%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  position: "relative",
-  zIndex: 1,
-  outlineOffset: 2,
-}
-
-export default Slides

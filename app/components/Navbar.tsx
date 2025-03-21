@@ -53,7 +53,7 @@ const Navbar = () => {
       </nav>
       <div className={styles.container}>
         <motion.button
-          name="Menu button"
+          aria-label="Menu button"
           className={styles.menuButton}
           onClick={() => setIsVisible(true)}
           whileTap={{ y: 1 }}
@@ -75,7 +75,7 @@ const Navbar = () => {
                   <div className={styles.navSpacer} />
                   <Logo />
                   <motion.button
-                    name="Close menu button"
+                    aria-label="Close menu button"
                     className={styles.closeButton}
                     onClick={() => setIsVisible(false)}
                     whileTap={{ y: 1 }}
