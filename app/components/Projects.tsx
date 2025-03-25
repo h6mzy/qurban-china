@@ -25,6 +25,7 @@ export default function ProjectsSection() {
                   key={index} 
                   layoutId={project.title} 
                   onClick={() => setSelectedTitle(project.title)}
+                  style={{ background: `url(https://i.pravatar.cc/768?img=${index+1}) center center / cover no-repeat transparent`, borderRadius: '1rem' }}
                 >
                   <Card title={project.title} />
                 </motion.div>
