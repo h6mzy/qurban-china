@@ -75,7 +75,7 @@ const Navbar = () => {
                   <div className={styles.navSpacer} />
                   <Logo />
                   <motion.button
-                    aria-label="Close menu button"
+                    aria-label="Close menu"
                     className={styles.closeButton}
                     onClick={() => setIsVisible(false)}
                     whileTap={{ y: 1 }}
