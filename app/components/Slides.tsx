@@ -6,7 +6,7 @@ import styles from './Slides.module.sass'
 
 const Slides = ({
   items = [],
-  slidesToShow = 2,
+  slidesToShow = 1,
   loop = true, // Add loop prop (default is true)
 }: {
   items?: any[]
