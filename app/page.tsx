@@ -11,10 +11,13 @@ export default function Home() {
     <main>
       <section>
         <div className={styles.container}>
-          <video className={styles.video} src="/videos/home.mp4"  autoPlay  loop  muted  playsInline />
+          <video className={styles.video} autoPlay loop muted playsInline>
+            <source src="/videos/home.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className={styles.content}>
-            <h2>Zakat 2025</h2>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <h2>Qurban 2025</h2>
+            <p>Demonstrate your gratitude to Allah this Eid al-Adha.</p>
             <button
               aria-label="More info"
               className={layout.whiteButton}
@@ -32,7 +35,7 @@ export default function Home() {
               <h2><strong>Our Generous Donors</strong></h2>
             </div>
             <Slides
-              slidesToShow={2}
+              slidesToShow={1}
               items={donors.map((item:any, index) => {
                 return (
                   <div 

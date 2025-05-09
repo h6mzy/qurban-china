@@ -17,7 +17,7 @@ export default function ProjectsSection() {
         <div className={layout.container}>
           <div className={layout.pad}>
             <div className={layout.autoAlign}>
-              <h2><strong>Waqaf Projects</strong></h2>
+              <h2><strong>Zakat Projects</strong></h2>
             </div>
             <div className={`${flex.row} ${flex.threeColumn}`}>
               {projects.map((project, index) => (

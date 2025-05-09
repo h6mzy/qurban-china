@@ -6,6 +6,7 @@
   align-items: stretch
   width: 100%
   height: calc(100dvh - var(--mobile-nav-height))
+  background: black
 
 .video
   width: 100%
@@ -17,6 +18,9 @@
   z-index: 0
   top: 0
   left: 0
+  background: black
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, .2))
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, .2))
 
 .content
   position: relative
@@ -29,6 +33,7 @@
   padding: var(--gap) var(--gap) calc(var(--gap) * 2)
   color: #fff
   text-shadow: var(--text-shadow)
+  text-align: center
   h2
     font-weight: bold
     margin-block: 0
