@@ -34,7 +34,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Modal for expanded card */}
       <AnimatePresence>
         {selectedId && (
           <ExpandedCard
