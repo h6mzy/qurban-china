@@ -1,11 +1,11 @@
 'use client'
 
-import Link from 'next/link'
-import styles from './Navbar.module.sass'
-import layout from './Layout.module.sass'
 import { AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 import * as motion from 'motion/react-client'
+import Link from 'next/link'
+import styles from './Navbar.module.sass'
+import layout from '@/styles/Layout.module.sass'
 import Image from 'next/image'
 
 const leftNav = ["watch", "contact"]

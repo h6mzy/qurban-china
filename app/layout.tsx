@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import './global.sass'
+import '../styles/globals.sass'
 import { Poppins } from 'next/font/google'
-import Navbar from './components/Navbar'
-import SiteFooter from './components/footer'
 import { project_details } from './_lib/project'
+import Navbar from '@/app/components/Navbar'
+import SiteFooter from '@/app/components/SiteFooter'
 
 const bodyFont = Poppins({ subsets: ['latin'], weight: ['300', '900'] })
 

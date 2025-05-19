@@ -2,9 +2,9 @@
 
 import { motion } from 'motion/react'
 import { useEffect } from 'react'
-import styles from './Card.module.sass'
-import button from './Button.module.sass'
-import layout from './Layout.module.sass'
+import styles from '@/app/components/Card/Card.module.sass'
+import button from '@/styles/Button.module.sass'
+import layout from '@/styles/Layout.module.sass'
 import Image from 'next/image'
 
 export default function ExpandedCard({ project, onClose, index = 1 }: { project: any; onClose: () => void, index?:number }) {

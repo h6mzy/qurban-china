@@ -1,8 +1,8 @@
 'use client'
 
+import { project_details } from '../../_lib/project'
 import dayjs from 'dayjs'
-import { project_details } from '../_lib/project'
-import styles from './Layout.module.sass'
+import styles from '@/styles/Layout.module.sass'
 
 const SiteFooter = () => {
   return (

@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import { LayoutGroup, AnimatePresence, motion } from 'motion/react'
-import Card from './Card'
-import ExpandedCard from './ExpandedCard'
-import { projects } from '../_lib/projects'
-import layout from '../components/Layout.module.sass'
-import flex from '../components/Flex.module.sass'
+import { projects } from '../../_lib/projects'
+import Card from '@/app/components/Card'
+import ExpandedCard from '@/app/components/ExpandedCard'
+import layout from '@/styles/Layout.module.sass'
+import flex from '@/styles/Flex.module.sass'
 
-export default function ProjectsSection() {
+export default function Projects() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
   return (
