@@ -8,8 +8,10 @@ export default function ExpandedCard({ project, onClose, index = 1 }: { project:
   return (
     <motion.div
       layoutId={project.id}
-      layout
-      transition={{ type: 'tween', duration: .3, ease: 'easeInOut' }}
+      initial={{ aspectRatio: '5 / 4', opacity: 0 }}
+      animate={{ aspectRatio: 'auto', opacity: 1 }}
+      exit={{ aspectRatio: '5 / 4', opacity: 0 }}
+      transition={{ duration: .3, ease: 'easeInOut' }}
       className={styles.cardWrapper}
       onClick={onClose}
     >

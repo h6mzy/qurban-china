@@ -7,8 +7,7 @@ export default function Card({ project = {}, index = 1 }:{ project:any, index?:n
  return (
     <motion.div
       layoutId={project.id}
-      layout
-      transition={{ type: 'tween', duration: .3, ease: 'easeInOut' }}
+      //transition={{ duration: .3, ease: 'easeInOut' }}
       className={styles.cardWrapper}
     >
       <div className={styles.card}>
