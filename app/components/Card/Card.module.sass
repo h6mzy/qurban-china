@@ -1,53 +1,32 @@
+@use '@/styles/mixins'
+
+.cardWrapper
+  @include mixins.card-wrapper
+
 .card
+  @include mixins.card
   width: 100%
   aspect-ratio: 5 / 4
-  border-radius: 1rem
-  overflow: hidden
-  box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .25)
-  display: flex
-  justify-content: center
-  align-items: flex-end
-  color: #fff
-  text-shadow: var(--text-shadow)
-  padding: 1rem
-  line-height: 1.2
-  > h1, h2, h3, h4
-    margin-block: 0
+  h3
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1
+    color: #fff
+    line-height: 1.15
+    margin: 0
+    padding: var(--gap)
 
-.expandedCard
-  width: 100% //calc(100% - (var(--gap) * 2))
-  max-width: 768px
-  height: 100% //calc(100% - (var(--gap) * 2))
-  max-height: 768px
-  background: #fff
-  border-radius: 1rem
-  box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .25)
-  transition: all .3s ease-in-out
-  z-index: 101
-  overflow-x: hidden
-  overflow-y: auto
-  scrollbar-width: none // Firefox
-  -ms-overflow-style: none // Internet Explorer 10+
-  &::-webkit-scrollbar
-    display: none // Safari and Chrome
-
-.expandedCardWrapper
-  position: fixed
-  top: 0
-  left: 0
-  width: 100dvw
-  height: 100dvh
-  background: rgba(0, 0, 0, .8)
-  transition: all .3s ease-in
-  display: flex
-  align-items: center
-  justify-content: center
-  z-index: 100
-  overflow: hidden
-
-.image
-  position: relative
-  aspect-ratio: 5 / 4
-
-.body
-  padding: 1rem
+.cover
+  @include mixins.card-cover
+  &::before
+    content: ''
+    display: block
+    z-index: 1
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: linear-gradient(195deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .75))
