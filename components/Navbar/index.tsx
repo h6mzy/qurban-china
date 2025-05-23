@@ -5,11 +5,10 @@ import * as motion from 'motion/react-client'
 import styles from './Navbar.module.sass'
 import Logo from './Logo'
 import Donate from './Donate'
-import NavList from './NavList'
+import ListItems from './ListItems'
 import { useMenuToggle } from './hooks'
-
-const leftNav = ["watch", "contact"]
-const rightNav = ["zakat", "projects", "testimonials"]
+import { fadeInOut, tapEffect } from './animations'
+import { leftNav, rightNav, mobileNav } from './navItems'
 
 export default function Navbar() {
   const { isVisible, open, close } = useMenuToggle()
@@ -24,7 +23,7 @@ export default function Navbar() {
           <li className={styles.item}>
             <Donate />
           </li>
-          <NavList items={leftNav} />
+          <ListItems items={leftNav} />
         </ul>
       </nav>
       
@@ -35,7 +34,9 @@ export default function Navbar() {
       
       {/* Right navigation */}
       <nav className={styles.nav}>
-        <NavList items={rightNav} className={styles.rightList} />
+        <ul className={styles.rightList}>
+          <ListItems items={rightNav} />
+        </ul>
       </nav>
       
       {/* Mobile menu toggle button */}
@@ -44,7 +45,7 @@ export default function Navbar() {
           aria-label="Open menu"
           className={styles.menuButton}
           onClick={open}
-          whileTap={{ y: 1 }}
+          {...tapEffect}
         >
           <span className={styles.lines}>&nbsp;</span>
         </motion.button>
@@ -53,10 +54,7 @@ export default function Navbar() {
         <AnimatePresence initial={false}>
           {isVisible && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: .2 }}
+              {...fadeInOut}
               className={styles.mask}
               key="mobile-menu"
             >
@@ -80,7 +78,7 @@ export default function Navbar() {
                       <Donate />
                     </li>
                     {/* Combined nav items */}
-                    <NavList items={leftNav.concat(rightNav)} />
+                    <ListItems items={mobileNav} />
                   </ul>
                 </nav>
               </div>
