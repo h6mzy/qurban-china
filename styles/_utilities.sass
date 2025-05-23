@@ -37,20 +37,20 @@
 .autoAlign
   text-align: center
 
-.row, .column
-  display: flex
-  gap: var(--gap)
-
 .smallGap
   gap: calc(var(--gap) / 2)
 
 @media (min-width: 768px)
-  .twoColumn > div
-    width: calc((100% - var(--gap)) / 2)
-  .threeColumn > div
-    width: calc((100% - (var(--gap) * 2)) / 3)
-  .fourColumn > div
-    width: calc((100% - (var(--gap) * 3)) / 4)
+  .row
+    width: 100%
+    display: grid
+    gap: var(--gap)
+  .twoColumn
+    grid-template-columns: repeat(2, 1fr)
+  .threeColumn
+    grid-template-columns: repeat(3, 1fr)
+  .fourColumn
+    grid-template-columns: repeat(4, 1fr)
 
 @media (min-width: 992px)
   .autoAlign

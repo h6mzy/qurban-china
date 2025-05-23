@@ -10,6 +10,14 @@ export default function HomePage() {
         <FullPageVideo />
       </section>
       <SplashScreen />
+      <section>
+        <div className='container pad'>
+          <h2>Recent Projects</h2>
+          <div className='row threeColumn'>
+            
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
