@@ -1,5 +1,5 @@
 export const leftNav = [
-  { label: "Watch", key: "/watch", },
+  { label: "Videos", key: "videos", },
   { label: "Contact", key: "contact", },
 ]
 

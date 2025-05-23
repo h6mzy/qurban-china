@@ -14,8 +14,9 @@ export default function SplashScreen() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
-    const dontShow = localStorage.getItem('noSplash')
-    if (!dontShow) {
+    const expiry = localStorage.getItem('noSplashUntil')
+    const now = Date.now()
+    if (!expiry || now > Number(expiry)) {
       setVisible(true)
     }
   }, [])
@@ -41,12 +42,27 @@ export default function SplashScreen() {
   }
 
   const handleDontShow = () => {
-    localStorage.setItem('noSplash', 'true')
+    const days = 7
+    const expiryTimestamp = Date.now() + days * 24 * 60 * 60 * 1000 // 7 days
+    localStorage.setItem('noSplashUntil', expiryTimestamp.toString())
     setVisible(false)
   }
 
   return (
     <AnimatePresence>
+      {process.env.NODE_ENV === 'development' && (
+        <div className={styles.devTools}>
+          <button 
+            className="fullWidth"
+            onClick={() => {
+              localStorage.removeItem('noSplashUntil')
+              window.location.reload()
+            }}
+          >
+            🔄 Reset Splash
+          </button>
+        </div>
+      )}
       {visible && (
         <motion.div
           className={styles.splash}

@@ -1,7 +1,6 @@
 'use client'
 
 import styles from '@/styles/Home.module.sass'
-import layout from '@/styles/Layout.module.sass'
 import SplashScreen from '@/components/SplashScreen'
 
 export default function HomePage() {
@@ -19,7 +18,7 @@ export default function HomePage() {
             <p>Demonstrate your gratitude to Allah this Eid al-Adha.</p>
             <button
               aria-label="More info"
-              className={layout.whiteButton}
+              className="whiteButton"
             >
               More info
             </button>
