@@ -53,9 +53,9 @@ export default function SplashScreen() {
               </AnimatePresence>
             </div>
             
-            <div className={styles.buttons}>
-              <button className='whiteButton' onClick={handleSkip}>Skip</button>
-              <button className='whiteButton' onClick={handleDontShow}>Don’t show again</button>
+            <div className={styles.actions}>
+              <a onClick={handleSkip}><small>Skip</small></a>
+              <a onClick={handleDontShow}><small>Don’t show again</small></a>
             </div>
           </motion.div>
         )}

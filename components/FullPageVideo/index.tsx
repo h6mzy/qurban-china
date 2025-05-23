@@ -2,7 +2,7 @@ import styles from './FullPageVideo.module.sass'
 
 const FullPageVideo = () => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.minusNav}`}>
       <video className={styles.video} autoPlay loop muted playsInline>
         <source src="/videos/home.mp4" type="video/mp4" />
         Your browser does not support the video tag. 
@@ -14,7 +14,7 @@ const FullPageVideo = () => {
           aria-label="More info"
           className="whiteButton"
         >
-          More info
+          DONATE NOW
         </button>
       </div>
     </div>
