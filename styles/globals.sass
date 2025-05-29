@@ -37,16 +37,28 @@ h3
 h4
   font-size: 1.2rem
 
+button, select
+  color: var(--text-color)
+  background-color: transparent
+  padding: .5rem 2rem
+  transition: all .3s ease
+  line-height: 1
+  font-size: var(--font-size)
+  font-family: inherit
+  min-height: var(--button-height)
+
 button
   display: flex
   justify-content: center
   align-items: center
-  color: var(--text-color)
   border: 1px solid var(--text-color)
-  background-color: transparent
-  padding: 1rem 2rem
-  transition: all .3s ease
-  line-height: 1
+
+select
+  border: 1px solid var(--box-color)
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+  color: var(--weak-color)
 
 .unstyledLink
   text-decoration: none

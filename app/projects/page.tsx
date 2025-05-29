@@ -23,10 +23,18 @@ export default async function ProjectsPage({
     <main>
       <section>
         <div className="container pad">
-          <h1>{categoryLabel} Projects</h1>
-          <p className="textWeak">{filteredProjects.length} found.</p>
+          <div className="textCenter">
+            <h1>{categoryLabel} Projects</h1>
+            <p className="textWeak">{filteredProjects.length} found.</p>
+          </div>
 
-          <CategoryFilter value={selectedCategory} />
+          <div className="padBottom">
+            <div className="grid" style={{ rowGap: 0 }}>
+              <div />
+              <CategoryFilter value={selectedCategory} />
+              <div />
+            </div>
+          </div>
 
           <ProjectsGrid categories={selectedCategory ? [selectedCategory] : []} />
         </div>

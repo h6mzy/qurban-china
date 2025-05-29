@@ -1,0 +1,14 @@
+.selector
+  position: relative
+
+  &::after
+    content: ''
+    position: absolute
+    right: var(--gap)
+    top: 50%
+    transform: translateY(-75%) rotateZ(45deg)
+    width: .73rem
+    height: .73rem
+    pointer-events: none
+    border-right: 1px solid var(--weak-color)
+    border-bottom: 1px solid var(--weak-color)
