@@ -1,8 +1,3 @@
-import ProjectsPage from '@/app/projects/page'
+import ProjectsPage from '../page'
 
-export default function CategoryProjectsPage({ params }: { params: { category: string } }) {
- const { category } = params
-  return (
-    <ProjectsPage params={{category}} />
-  )
-}
+export default ProjectsPage
