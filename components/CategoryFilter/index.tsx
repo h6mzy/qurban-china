@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { categories } from '@/lib/categories'
-import styles from './Select.module.sass'
 
 interface CategoryFilterProps {
   value: string
@@ -17,7 +16,7 @@ export default function CategoryFilter({ value }: CategoryFilterProps) {
   }
 
   return (
-    <div className={styles.selector}>
+    <div className="selectWrapper">
       <select
         value={value}
         onChange={handleChange}
